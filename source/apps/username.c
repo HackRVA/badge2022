@@ -1,15 +1,22 @@
 
+#ifdef __linux__
+#include <stdio.h>
+#include <sys/time.h>
+#include <stdint.h>
+#endif
 
-#include <string.h>
-#include "colors.h"
+#include "../linux/linuxcompat.h"
 #include "menu.h"
+#include "framebuffer.h"
 #include "button.h"
 #include "badge.h"
-#include "framebuffer.h"
+#include "colors.h"
+#include <string.h>
 
-/* username is a global externally visible */
-#define NAMESIZE 10
+
+#ifndef __linux__
 char username[NAMESIZE] = { 0 };
+#endif
 
 /* Restore username from flash.  uname is a pointer to the memory
  * in RAM to which the data should be stored. The user name is length
