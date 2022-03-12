@@ -49,6 +49,10 @@ static void enable_all_monsters(void);
 
 typedef void (*state_to_function_map_fn_type)(void);
 
+#ifdef __linux__
+    static void enable_all_monsters(void);
+#endif
+
 static state_to_function_map_fn_type state_to_function_map[] = {
     app_init,
     game_menu,
