@@ -56,6 +56,11 @@ dkms.conf
 
 # Build artifacts
 build/
+build_sim/
 
 # Mac clutter
 **/.DS_Store
+
+# visual studio code settings
+*.code-workspace
+.vscode/
