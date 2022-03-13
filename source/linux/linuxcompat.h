@@ -5,7 +5,7 @@
 #define NAMESIZE 10
 
 /* for linux we can define here, otherwise it's in username.c */
-#ifdef __LINUX__
+#ifdef __linux__
 char username[NAMESIZE] = { 0 };
 #endif
 
