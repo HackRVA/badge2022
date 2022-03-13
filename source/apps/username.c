@@ -16,16 +16,17 @@
 
 #ifndef __linux__
 char username[NAMESIZE] = { 0 };
+#else
+extern char username[NAMESIZE];
 #endif
 
 /* Restore username from flash.  uname is a pointer to the memory
  * in RAM to which the data should be stored. The user name is length
  * characters, not necessarily NULL terminated.
  */
-void restore_username_from_flash(char *uname, int length)
+void restore_username_from_flash(const char *uname, size_t length)
 {
-   int i;
-   for (i=0; i < length; i++)
+   for (size_t i=0; i < length; i++)
 	username[i] = uname[i];
 }
 
@@ -33,10 +34,9 @@ void restore_username_from_flash(char *uname, int length)
  * in RAM to which the data should be stored. The user name is length
  * characters, not necessarily NULL terminated.
  */
-void save_username_to_flash(char *uname, int length)
+void save_username_to_flash(const char *uname, size_t length)
 {
-   int i;
-   for (i=0; i < length; i++)
+   for (size_t i=0; i < length; i++)
 	badge_system_data()->name[i] = uname[i];
 
    /*
