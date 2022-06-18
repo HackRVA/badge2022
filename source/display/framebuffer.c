@@ -643,7 +643,7 @@ void FbPaintNewRows(void)
         if (!IS_ROW_CHANGED(i))
             continue;
         /* Copy changed rows to screen and to old[] buffer */
-        int num_pixels = max_changed_x[i] - min_changed_x[i] + 1;
+        int num_pixels = max_changed_x[i] - min_changed_x[i];
         if (!rotated)
             S6B33_rect(i, min_changed_x[i], 1, num_pixels);
         else
